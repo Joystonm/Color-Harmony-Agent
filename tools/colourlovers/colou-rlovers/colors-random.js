@@ -1,5 +1,5 @@
 /**
- * Function to retrieve the top colors from COLOURlovers API.
+ * Function to get the top colors from COLOURlovers API.
  *
  * @param {Object} args - Arguments for the color retrieval.
  * @param {string} [args.format="json"] - The format of the response (json or xml).
@@ -51,7 +51,7 @@ const apiTool = {
           format: {
             type: 'string',
             enum: ['json', 'xml'],
-            description: 'The format of the response (json or xml).'
+            description: 'The format of the response.'
           }
         },
         required: []

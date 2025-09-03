@@ -1,7 +1,7 @@
 /**
- * Function to retrieve a color palette from COLOURlovers.
+ * Function to retrieve a palette from the COLOURlovers API.
  *
- * @param {Object} args - Arguments for the palette retrieval.
+ * @param {Object} args - Arguments for the palette request.
  * @param {number} args.paletteId - The ID of the palette to retrieve.
  * @returns {Promise<Object>} - The result of the palette retrieval.
  */
@@ -35,7 +35,7 @@ const executeFunction = async ({ paletteId }) => {
 };
 
 /**
- * Tool configuration for retrieving a color palette from COLOURlovers.
+ * Tool configuration for retrieving a palette from the COLOURlovers API.
  * @type {Object}
  */
 const apiTool = {
@@ -44,7 +44,7 @@ const apiTool = {
     type: 'function',
     function: {
       name: 'get_palette',
-      description: 'Retrieve a color palette from COLOURlovers.',
+      description: 'Retrieve a palette from the COLOURlovers API.',
       parameters: {
         type: 'object',
         properties: {

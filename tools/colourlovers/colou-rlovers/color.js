@@ -1,10 +1,10 @@
 /**
- * Function to retrieve color information from COLOURlovers API.
+ * Function to get color information from COLOURlovers API.
  *
  * @param {Object} args - Arguments for the color request.
  * @param {string} args.hex - The 6-character hex value of the color.
- * @param {boolean} [args.comments=true] - Whether to show the last 10 comments for the given Lover.
- * @param {string} [args.format="json"] - The format of the response (json or xml).
+ * @param {boolean} [args.comments=true] - Whether to include the last 10 comments for the given Lover.
+ * @param {string} [args.format='json'] - The format of the response (json or xml).
  * @returns {Promise<Object>} - The result of the color request.
  */
 const executeFunction = async ({ hex, comments = true, format = 'json' }) => {
@@ -30,15 +30,15 @@ const executeFunction = async ({ hex, comments = true, format = 'json' }) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error retrieving color information:', error);
+    console.error('Error fetching color information:', error);
     return {
-      error: `An error occurred while retrieving color information: ${error instanceof Error ? error.message : JSON.stringify(error)}`
+      error: `An error occurred while fetching color information: ${error instanceof Error ? error.message : JSON.stringify(error)}`
     };
   }
 };
 
 /**
- * Tool configuration for retrieving color information from COLOURlovers API.
+ * Tool configuration for fetching color information from COLOURlovers API.
  * @type {Object}
  */
 const apiTool = {
@@ -47,7 +47,7 @@ const apiTool = {
     type: 'function',
     function: {
       name: 'get_color_info',
-      description: 'Retrieve color information from COLOURlovers API.',
+      description: 'Fetch color information from COLOURlovers API.',
       parameters: {
         type: 'object',
         properties: {
@@ -57,7 +57,7 @@ const apiTool = {
           },
           comments: {
             type: 'boolean',
-            description: 'Whether to show the last 10 comments for the given Lover.'
+            description: 'Whether to include the last 10 comments for the given Lover.'
           },
           format: {
             type: 'string',

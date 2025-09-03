@@ -1,5 +1,5 @@
 /**
- * Function to get a random color palette from COLOURlovers.
+ * Function to fetch a random color palette from COLOURlovers API.
  *
  * @returns {Promise<Object>} - The random color palette data.
  */
@@ -7,11 +7,12 @@ const executeFunction = async () => {
   const endpoint = 'http://www.colourlovers.com/api/';
   const user = ''; // will be provided by the user
   try {
-    // Construct the URL
-    const url = `${endpoint}palettes/random?format=json`;
+    // Construct the URL for fetching a random palette
+    const url = new URL(`${endpoint}palettes/random`);
+    url.searchParams.append('format', 'json');
 
     // Perform the fetch request
-    const response = await fetch(url, {
+    const response = await fetch(url.toString(), {
       method: 'GET'
     });
 
@@ -33,7 +34,7 @@ const executeFunction = async () => {
 };
 
 /**
- * Tool configuration for fetching a random color palette from COLOURlovers.
+ * Tool configuration for fetching a random color palette from COLOURlovers API.
  * @type {Object}
  */
 const apiTool = {
@@ -41,8 +42,8 @@ const apiTool = {
   definition: {
     type: 'function',
     function: {
-      name: 'get_random_palette',
-      description: 'Fetch a random color palette from COLOURlovers.',
+      name: 'fetch_random_palette',
+      description: 'Fetch a random color palette from COLOURlovers API.',
       parameters: {
         type: 'object',
         properties: {},
